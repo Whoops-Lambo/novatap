@@ -1,0 +1,6 @@
+node_modules/
+dist/
+*.ipa
+.DS_Store
+artifacts/
+*-screenshot.png
