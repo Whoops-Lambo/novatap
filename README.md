@@ -46,3 +46,7 @@ This workflow builds for a real iPhone without a signing identity. Sideloadly su
 - The Mac IPA script stages each build in a fresh folder and validates the device platform, executable, and bundled game assets before reporting success.
 
 Validation in this revision: ten game logic tests, mobile browser purchase/offline/milestone/expedition checks, production web build, and web asset sync to the iOS project. Native compilation, the GitHub macOS job, and installation on a physical iPhone remain unverified in this Linux environment.
+
+## Energy upgrades
+
+Open **Upgrades → Bigger energy reserve**, or use **Upgrade energy capacity** below the energy bar. Each purchase increases the maximum by 100 and adds 100 usable energy immediately. Prices start at 200 stardust and increase by 60% per level (rounded to the nearest stardust). A full reserve regenerates in eight hours at every capacity; the energy bar and countdown reflect the current level. Capacity upgrades persist across restarts and migrate existing saves without resetting progress.

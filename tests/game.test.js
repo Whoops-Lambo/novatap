@@ -40,3 +40,27 @@ test('sector income bonus applies to active and offline production',()=>{
   const s={...fresh(0),levels:[2,0,0],sector:3};
   assert.equal(sectorBonus(s),1.3);assert.equal(rate(s),1.3);assert.equal(advance(s,10000).dust,13);
 });
+
+import {energyCapacity,energyCost,buyEnergy} from '../src/game.js';
+test('energy capacity upgrades charge stardust, grant the new energy and increase subsequent prices',()=>{
+  const empty=fresh(0);assert.equal(buyEnergy(empty),empty);
+  let s={...empty,dust:1000,energy:50};
+  s=buyEnergy(s);assert.equal(s.dust,800);assert.equal(s.energy,150);assert.equal(energyCapacity(s),600);assert.equal(energyCost(s),320);
+  s=buyEnergy(s);assert.equal(s.dust,480);assert.equal(s.energy,250);assert.equal(energyCapacity(s),700);
+  assert.equal(buyEnergy(s),s);
+});
+test('upgraded energy capacity survives reload and offline regeneration fills the larger reserve in eight hours',()=>{
+  let s=buyEnergy({...fresh(0),dust:200});
+  s=load(JSON.stringify(s),0);assert.equal(energyCapacity(s),600);assert.equal(s.energy,600);
+  s.energy=0;s=advance(s,4*3600000);assert.equal(s.energy,300);
+  s=advance(s,10*3600000);assert.equal(s.energy,600);
+});
+test('old and invalid energy upgrade data preserves existing progress safely',()=>{
+  const old={...fresh(0),dust:123,energy:400};delete old.energyLevel;
+  assert.equal(load(JSON.stringify(old)).energyLevel,0);assert.equal(load(JSON.stringify(old)).energy,400);
+  for(const invalid of [-1,1.5,'2',null]){
+    const state=load(JSON.stringify({...old,energyLevel:invalid}));
+    assert.equal(state.dust,123);assert.equal(energyCapacity(state),500);
+  }
+  assert.equal(load(JSON.stringify({...old,energyLevel:1,energy:999})).energy,600);
+});
