@@ -1,1 +1,9 @@
-{"appId":"com.novatap.game","appName":"NovaTap","webDir":"dist","ios":{"contentInset":"automatic","backgroundColor":"#101916"}}
+{
+  "appId": "com.novatap.game",
+  "appName": "NovaTap",
+  "webDir": "dist",
+  "ios": {
+    "contentInset": "never",
+    "backgroundColor": "#101916"
+  }
+}

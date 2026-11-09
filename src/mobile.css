@@ -1,0 +1,110 @@
+/* Phone layouts keep the main action and energy reserve within thumb reach. */
+.mobile-brand,.energy-link-icon{display:none}
+@media(max-width:760px), (max-width:960px) and (pointer:coarse){
+  :root{--phone-nav-height:66px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{overscroll-behavior-y:none}
+  main{margin-left:0;padding: max(12px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) calc(var(--phone-nav-height) + env(safe-area-inset-bottom) + 20px) max(16px, env(safe-area-inset-left))}
+  .brand,.nav-caption,.sidebar-bottom{display:none}
+  .stats small{display:none}
+  .upgrade-grid,.game-grid{grid-template-columns:1fr}
+  header{gap:12px;min-height:44px}
+  .mobile-brand{display:block;color:var(--mint);font-size:17px;font-weight:700;letter-spacing:-.4px}
+  header .eyebrow,header p{display:none}
+  header h1{font-size:18px;line-height:1.35;letter-spacing:-.4px;margin:4px 0 0;max-width:none}
+  .sound{flex-shrink:0}
+  .stats{position:sticky;top:max(8px,env(safe-area-inset-top));z-index:6;grid-template-columns:1.1fr 1fr;margin:14px 0;padding:12px 0;background:#162019;box-shadow:0 6px 18px #0b120d80}
+  .stats>div{min-width:0;padding:0 15px}
+  .stats>div:nth-child(2){border:0}
+  .stats>div:nth-child(3){display:none}
+  .stats .stat-label{font-size:9px;letter-spacing:.8px;white-space:nowrap}
+  .stats strong{font-size:27px;line-height:1.2;margin:5px 0 0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+  .stats em{font-size:12px}
+  .collector{padding:14px 16px}
+  .panel-heading .eyebrow{font-size:9px;letter-spacing:1px}
+  .orbit-scene{height:180px;height:clamp(150px,24svh,210px)}
+  #orb{width:160px;height:160px;width:clamp(140px,22svh,180px);height:clamp(140px,22svh,180px);isolation:isolate}
+  .orb-core{font-size:100px;font-size:clamp(90px,15svh,115px)}
+  .orbit-one{width:200px;height:200px}
+  .orbit-two{width:255px;height:145px}
+  .tap-caption h2,.tap-caption p{display:none}
+  .gain{display:inline-block;font-size:11px;line-height:1.3;padding:5px 11px}
+  .energy{position:relative;margin-top:10px;padding-top:4px}
+  .energy>div:first-child{min-height:44px;align-items:center;font-size:12px;padding-right:35px}
+  .energy strong{font-size:12px;white-space:nowrap}
+  .energy .track{margin-top:0;height:5px}
+  .energy p{font-size:11px;line-height:1.4;margin:8px 0 0}
+  .energy-link{position:absolute;right:-8px;top:3px;width:44px;height:44px;margin:0;padding:0;border:0}
+  .energy-link-copy{display:none}
+  .energy-link-icon{display:block;font-size:23px;color:var(--mint)}
+  .sidebar{position:fixed;inset:auto 0 0;width:100%;z-index:10;height:calc(var(--phone-nav-height) + env(safe-area-inset-bottom));padding:0 max(8px, env(safe-area-inset-right)) env(safe-area-inset-bottom) max(8px, env(safe-area-inset-left));background:#121a15;border-top:1px solid #33412e}
+  nav{display:flex;justify-content:space-around;height:var(--phone-nav-height);gap:5px}
+  nav button{display:flex;flex:1;flex-direction:column;gap:3px;margin:5px 0;min-width:44px;min-height:44px;padding:6px 10px}
+  nav b{display:none}
+  nav button span{font-size:11px;line-height:1.4}
+  .section-title{gap:12px;align-items:flex-end}
+  .section-title .eyebrow{font-size:9px;line-height:1.6}
+  .section-title h2{font-size:19px;line-height:1.35}
+  .text-button{min-height:44px;font-size:12px}
+  .upgrade-section{margin-top:22px}
+  .upgrade-card{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:6px 12px;padding:16px}
+  .card-top{display:contents}
+  .upgrade-card .upgrade-icon{grid-column:1;grid-row:1 / 3}
+  .upgrade-card .level{grid-column:3;grid-row:1;font-size:9px;align-self:center}
+  .upgrade-card h3{grid-column:2;grid-row:1;font-size:15px;line-height:1.4;margin:0;align-self:center}
+  .upgrade-card p{grid-column:2 / 4;grid-row:2;font-size:12px;line-height:1.6;margin:0;min-height:0}
+  .card-bottom{grid-column:2 / 4;grid-row:3;margin-top:5px;gap:10px}
+  .card-bottom>span{font-size:15px;white-space:nowrap}
+  .card-bottom small{font-size:11px}
+  .card-bottom button{font-size:13px;padding:10px 16px;min-height:44px;min-width:88px}
+  .power{gap:12px;margin-top:14px;padding:18px}
+  .power h2{font-size:18px;margin:0 0 8px}
+  .power p{font-size:13px;line-height:1.65;margin:4px 0}
+  .power>div{flex-basis:100%}
+  .power button{width:100%;font-size:13px;min-height:48px}
+  .next-panel h2{font-size:19px}
+  .next-panel p,.eta,.progress-info{font-size:12px;line-height:1.6}
+  .next-panel .section-label .eyebrow{font-size:9px;max-width:none}
+  .milestone-action{min-height:48px;font-size:13px}
+  .offline-card h3,.scout-shortcut strong{font-size:14px}
+  .offline-card p,.scout-shortcut small{font-size:12px;line-height:1.6}
+  .journey-row{padding:18px}
+  .journey-row h3{font-size:16px}
+  .journey-row p{font-size:13px}
+  .journey-row button{font-size:13px;min-height:48px}
+  .route{gap:12px;padding:18px 0}
+  .route p,.route-status,.mission-note{font-size:12px;line-height:1.65}
+  .route button{font-size:13px;min-height:48px}
+  .route button{margin-left:0}
+  .route-copy{min-width:155px}
+  .modal-wrap{padding:max(18px,env(safe-area-inset-top)) max(18px,env(safe-area-inset-right)) max(18px,env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left))}
+  .modal{width:100%;max-height:calc(100vh - 36px - env(safe-area-inset-top) - env(safe-area-inset-bottom));padding:28px 20px}
+  .modal p{font-size:14px}
+  .modal button{width:100%;min-height:48px}
+  #toast{bottom:calc(var(--phone-nav-height) + env(safe-area-inset-bottom) + 12px);width:max-content;max-width:calc(100vw - 32px);font-size:13px;background:#c7fca4;box-shadow:0 6px 24px #0005;text-align:center}
+  footer{font-size:10px;gap:16px}
+}
+@media(max-width:760px) and (max-height:700px) and (orientation:portrait){
+  header h1{display:none}
+  .stats{margin:10px 0;padding:10px 0}
+  .stats strong{font-size:24px}
+  .orbit-scene{height:150px}
+  #orb{width:140px;height:140px}
+  .orb-core{font-size:95px}
+}
+@media(max-width:760px) and (orientation:landscape), (max-width:960px) and (pointer:coarse) and (orientation:landscape){
+  header{display:none}
+  .stats{position:static;margin-top:0}
+  .game-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+  .orbit-scene{height:165px}
+  #orb{width:145px;height:145px}
+  .right-column .next-panel{padding:16px}
+  .right-column .offline-card{display:none}
+  .next-panel .milestone-icon{display:none}
+  .next-panel h2{margin-top:14px}
+  .next-panel p{margin-bottom:12px}
+  .energy>div:first-child{font-size:11px}
+  .panel-heading .eyebrow{font-size:8px}
+  .pill{font-size:7px}
+}
+body.dialog-open{overflow:hidden}
+@media(prefers-reduced-motion:reduce){.orbit-scene .particle{display:none}}

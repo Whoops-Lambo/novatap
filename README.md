@@ -50,3 +50,13 @@ Validation in this revision: ten game logic tests, mobile browser purchase/offli
 ## Energy upgrades
 
 Open **Upgrades → Bigger energy reserve**, or use **Upgrade energy capacity** below the energy bar. Each purchase increases the maximum by 100 and adds 100 usable energy immediately. Prices start at 200 stardust and increase by 60% per level (rounded to the nearest stardust). A full reserve regenerates in eight hours at every capacity; the energy bar and countdown reflect the current level. Capacity upgrades persist across restarts and migrate existing saves without resetting progress.
+
+## Phone improvements in 1.2
+
+The Collect screen keeps the nova and energy bar above the bottom navigation on small portrait phones. Tap the plus beside your energy reserve to jump to its upgrade. The resource summary stays visible when scrolling, upgrades use compact rows, and each tab restores its previous scroll position. Landscape phones use a two-column Collect screen. Controls have at least 44-by-44 pixel touch areas.
+
+Tap updates are grouped per animation frame, tap saves are grouped over 250 milliseconds (flushed immediately on app suspension), number formatters and the audio context are reused, and particle counts are bounded. Hidden views avoid unnecessary updates, and Journey controls retain focus when timers tick.
+
+CSS owns iPhone safe-area padding with native automatic insets disabled, and the native status bar uses light text against the game's dark background. Native device verification still requires an iPhone build; browser tests do not verify the WKWebView's physical safe areas.
+
+With `npm run dev` running, use `node tests/phones.mjs` for touch-enabled checks at 320×568, 375×667, 390×844, 430×932 and 844×390. These cover viewport fit, touch target sizes, rapid tapping, save flushing on suspension, tab scroll restoration and focus retention. `node tests/browser.mjs` covers the full gameplay workflow.
